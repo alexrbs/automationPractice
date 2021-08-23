@@ -21,6 +21,7 @@ public class SuccessfulPurchase extends TestBase {
     private ShippingTask shippingTask = new ShippingTask(driver);
     private PaymentTask paymentTask = new PaymentTask(driver);
     private SummaryTask summaryTask = new SummaryTask(driver);
+    private ProductTask productTask = new ProductTask(driver);
 
     @Test
     public void successfulPurchase(){
@@ -30,7 +31,8 @@ public class SuccessfulPurchase extends TestBase {
             UserFileManager.createUserInformationFile("userInformation");
 
             homeTask.selectSearchTextField();
-            searchTask.addToCartFromSearch();
+            searchTask.goToProductFromSearch();
+            productTask.addProductToCart();
             shoppingCartTask.shoppingCartCheckout();
             authenticationTask.provideEmail();
             personalInformationTask.setPersonalInformation();
@@ -48,7 +50,8 @@ public class SuccessfulPurchase extends TestBase {
     @Test
     public void noReportPurchase(){
         homeTask.selectSearchTextField();
-        searchTask.addToCartFromSearch();
+        searchTask.goToProductFromSearch();
+        productTask.addProductToCart();
         shoppingCartTask.shoppingCartCheckout();
         authenticationTask.provideEmail();
         personalInformationTask.setPersonalInformation();
