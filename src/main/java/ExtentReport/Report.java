@@ -2,8 +2,8 @@ package ExtentReport;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.MediaEntityModelProvider;
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.model.Media;
 
 public class Report {
     private static final ExtentReports extent = ReportFactory.getInstance();
@@ -38,7 +38,7 @@ public class Report {
         test.get().log(status, message);
     }
 
-    public static void log(Status status, String message, MediaEntityModelProvider capture){
+    public static void log(Status status, String message, Media capture){
         if(existsInstance()){
             return;
         }

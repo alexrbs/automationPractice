@@ -4,8 +4,8 @@ import Utils.FolderManager;
 import com.assertthat.selenium_shutterbug.core.PageSnapshot;
 import com.assertthat.selenium_shutterbug.core.Shutterbug;
 import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.MediaEntityModelProvider;
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.model.Media;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -21,7 +21,7 @@ import java.io.IOException;
 public class Screenshot {
     private static final String PATH_SCREENSHOT = ReportFactory.PATH_REPORT + File.separator + "Screenshot";
 
-    public static MediaEntityModelProvider capture(WebDriver driver){
+    public static Media capture(WebDriver driver){
         try{
             FolderManager.createFolderReport(PATH_SCREENSHOT);
             File scrshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
@@ -37,7 +37,7 @@ public class Screenshot {
         return null;
     }
 
-    public static MediaEntityModelProvider fullPageBase64(WebDriver driver){
+    public static Media fullPageBase64(WebDriver driver){
         try{
             PageSnapshot screenshot = Shutterbug.shootPage((driver));
             ByteArrayOutputStream stream = new ByteArrayOutputStream();

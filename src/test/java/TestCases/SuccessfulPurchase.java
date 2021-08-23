@@ -44,4 +44,17 @@ public class SuccessfulPurchase extends TestBase {
             Report.log(Status.FAIL, e.getMessage(), Screenshot.fullPageBase64(driver));
         }
     }
+
+    @Test
+    public void noReportPurchase(){
+        homeTask.selectSearchTextField();
+        searchTask.addToCartFromSearch();
+        shoppingCartTask.shoppingCartCheckout();
+        authenticationTask.provideEmail();
+        personalInformationTask.setPersonalInformation();
+        addressTask.confirmAddressInformation();
+        shippingTask.confirmShipping();
+        paymentTask.selectPaymentBankWire();
+        summaryTask.confirmOrder();
+    }
 }
