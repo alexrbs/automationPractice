@@ -19,8 +19,8 @@ public class SearchPage {
         return waits.visibilityOfElement(By.xpath("//*[@id='columns']/div[1]/span[2]"));
     }
 
-    public WebElement getAddToCartButton(){
-        return waits.visibilityOfElement(By.xpath("//*[@id='center_column']/ul/li/div/div[2]/div[2]/a[1]"));
+    public WebElement getProductPanel(){
+        return waits.visibilityOfElement(By.xpath("//*[@id='center_column']/ul/li/div"));
     }
 
     public WebElement getSearchCheckoutButton(){
