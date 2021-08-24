@@ -1,6 +1,8 @@
 ###Project Folders###
 # Reports folder
 ./Report
+# Properties folder
+src/main/resources/Properties
 
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
