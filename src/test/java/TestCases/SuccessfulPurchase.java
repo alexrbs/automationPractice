@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 
 public class SuccessfulPurchase extends TestBase {
     private WebDriver driver = getDriver();
+
     private HomeTask homeTask = new HomeTask(driver);
     private SearchTask searchTask = new SearchTask(driver);
     private ShoppingCartTask shoppingCartTask = new ShoppingCartTask(driver);
@@ -27,7 +28,6 @@ public class SuccessfulPurchase extends TestBase {
     public void successfulPurchase(){
         try{
             Report.createTest("Single Product Successful Purchase", ReportType.SINGLE);
-
             UserFileManager.createUserInformationFile("userInformation");
 
             homeTask.selectSearchTextField();
@@ -40,6 +40,7 @@ public class SuccessfulPurchase extends TestBase {
             shippingTask.confirmShipping();
             paymentTask.selectPaymentBankWire();
             summaryTask.confirmOrder();
+            summaryTask.moveCenterPage();
 
             Report.log(Status.PASS, "Test Successful", Screenshot.fullPageBase64(driver));
             Report.close();

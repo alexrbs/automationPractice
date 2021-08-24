@@ -2,7 +2,10 @@ package Tasks;
 
 import PageObjects.SummaryPage;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class SummaryTask {
     private WebDriver driver;
@@ -37,5 +40,11 @@ public class SummaryTask {
             validatePaymentMethodCheck();
             summaryPage.getConfirmOrderButton().click();
         }
+    }
+
+    public void moveCenterPage(){
+        WebElement box = driver.findElement(By.xpath("/html/body/div/div[2]/div/div[3]/div/div"));
+        JavascriptExecutor j = (JavascriptExecutor)driver;
+        j.executeScript ("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'})", box);
     }
 }
