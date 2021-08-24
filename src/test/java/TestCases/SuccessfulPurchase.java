@@ -42,8 +42,10 @@ public class SuccessfulPurchase extends TestBase {
             summaryTask.confirmOrder();
 
             Report.log(Status.PASS, "Test Successful", Screenshot.fullPageBase64(driver));
+            Report.close();
         }catch (Exception e){
             Report.log(Status.FAIL, e.getMessage(), Screenshot.fullPageBase64(driver));
+            Report.close();
         }
     }
 
